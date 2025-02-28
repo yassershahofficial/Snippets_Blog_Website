@@ -1,0 +1,19 @@
+header{
+    display: flex;
+    justify-content:space-between;
+    align-items: top;
+    background: var(--peach);
+    padding: 1rem;
+}
+header h1{
+    text-align: center;
+    font-size: 4rem;
+}
+header div{
+    text-align: right;
+    margin: 0.6rem 0 0 0;
+}
+header div button{
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+}
