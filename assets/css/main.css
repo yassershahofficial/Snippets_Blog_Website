@@ -3,11 +3,12 @@ main{
     grid-template-columns: 60% 35%;
     justify-content: center;
     align-items: top;
-    row-gap: 1rem;
     margin-top: 1rem;
+    column-gap: 1%;
 }
 .main-news, .more-news{
     display: inline-block;
+    flex-direction: column;
     text-align: center;
     padding: 1rem 0;
     border-radius: 1rem;
