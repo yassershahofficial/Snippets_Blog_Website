@@ -1,0 +1,33 @@
+<!-- header -->
+<%- include('include/_header-form')%>
+<!-- /header -->
+
+<form action="" method="post">
+    <div>
+        <label for="">Title</label>
+        <input type="text">
+    </div>
+    <div>
+        <label for="">Story</label>
+        <textarea name="" id="" cols="40" rows="1"></textarea>
+    </div>
+    <div>
+        <label for="">Category</label>
+        <div class="checkboxes">
+            <button value="Finance">Finance</button>   
+            <button value="Self-Dev">Self-Dev</button>       
+            <button value="Coding">Coding</button>       
+            <button value="Education">Education</button> 
+            <button value="Psychology">Psychology</button>
+            <button value="Creative">Creative</button>
+        </div>
+    </div>
+    <div class="buttons">
+        <button type="submit">Publish</button>
+        <button>Cancel</button>
+    </div>
+</form>
+
+<!-- footer -->
+<%- include('include/_footer')%>
+<!-- /footer -->
