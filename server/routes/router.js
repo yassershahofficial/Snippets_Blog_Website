@@ -1,8 +1,8 @@
 const express = require('express');
 const route = express.Router();
-const services = require('../services/render');
-const controller = require('../controller/controller');
-
+const services = require('../services/render'); //for routing interface
+const controller = require('../controller/controller'); //for rest api -->CRUD function
+ 
 /** 
  * @description Root Route
  * @method GET /
@@ -25,5 +25,14 @@ route.get('/view-post', services.viewPostRoutes)
  * @method GET /all-directories
  */
 route.get('/directories', services.allDirectories)
+
+//create
+route.post('/api/posts', controller.create);
+
+//find All or by Id
+route.get('/api/posts', controller.find)
+
+//delete by Id
+route.delete('/api/posts/:id', controller.delete)
     
 module.exports = route;

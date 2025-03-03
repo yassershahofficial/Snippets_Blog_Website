@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8080;
 app.use(morgan('tiny'));
 
 //MongoDB connection
-// connectDB();
+connectDB();
 
 //parse request
 app.use(bodyparser.urlencoded({extended:true}))

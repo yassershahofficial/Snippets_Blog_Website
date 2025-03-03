@@ -19,3 +19,6 @@ var schema = new mongoose.Schema({
         default: Date.now
     }
 })
+
+const postDB = mongoose.model('Snippets',schema,'posts');
+module.exports = postDB;
