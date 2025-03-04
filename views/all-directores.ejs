@@ -4,122 +4,25 @@
 
 <div class="directory">
     <h2 class="title">All Directories</h2>
-    <div class="directory-news">
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-        <div class="subnews-s">
-            <img src="img/image.jpg" alt="">
-            <h1>Ways to Make Money</h1>
-            <p>
-                It’s a vitamins company with a brilliant website 
-                designed to hook you into that concept. Set against 
-                an orange gradient, the website focuses on a rotating 
-                bottle that follows you down the screen while 
-                highlighting its active ingredients.
-            </p>
-            <div>
-                <h2>Sport</h2>
-            </div>
-        </div>
-    </div>
+    <form class="directory-news" action="/api/posts" method="get">
+        <% for(var i=0; i<posts.length; i++){ %>
+            <a href="view-post?id=<%= posts[i]._id %>">
+                <div class="subnews-s">
+                    <img src="img/image.jpg" alt="">
+                    <h1><%= posts[i].title %></h1>
+                    <p><%= posts[i].paragraphs[0].slice(0,250) + "..." %></p>
+                    <div>
+                        <h2><%= posts[i].category %></h2>
+                    </div>
+                </div>
+            </a>  
+        <%
+        }
+        %>
+    </form>
 </div>
 
 <!-- footer -->
 <%- include('include/_footer')%>
 <!-- /footer -->
+

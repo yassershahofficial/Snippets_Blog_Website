@@ -1,4 +1,6 @@
 const axios = require('axios');
+const { param } = require('../routes/router');
+const { query } = require('express');
 
 exports.homeRoutes = (req,res) => {
     res.render('index');
@@ -7,8 +9,21 @@ exports.addPostRoutes = (req,res) => {
     res.render('form');
 }
 exports.viewPostRoutes = (req,res) => {
-    res.render('view');
+    axios.get('http://localhost:3000/api/posts', {params : {id : req.query.id}})
+        .then(function(response){
+            res.render('single-view', {post: response.data});
+        })
+        .catch(err => {
+            err.status(500).send({message : err.message || "request unavailable"})
+        })
 }
 exports.allDirectories = (req,res) => {
-    res.render('all-directores');
+    axios.get('http://localhost:3000/api/posts')
+        .then(function(response){
+            res.render('all-directores', {posts: response.data});
+        })
+        .catch(err => {
+            err.status(500).send({message : err.message || "request unavailable"})
+        })
+    
 }
