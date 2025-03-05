@@ -20,8 +20,8 @@ exports.create = (req, res) => {
         post
             .save(post)
             .then(data =>{
-                res.send(data)
-                //res.redirect('/')
+                // res.send(data)
+                res.redirect('/directories')
             })
 
     }catch(err){

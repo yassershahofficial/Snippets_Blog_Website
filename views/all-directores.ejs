@@ -6,16 +6,18 @@
     <h2 class="title">All Directories</h2>
     <form class="directory-news" action="/api/posts" method="get">
         <% for(var i=0; i<posts.length; i++){ %>
-            <a href="view-post?id=<%= posts[i]._id %>">
-                <div class="subnews-s">
-                    <img src="img/image.jpg" alt="">
-                    <h1><%= posts[i].title %></h1>
-                    <p><%= posts[i].paragraphs[0].slice(0,250) + "..." %></p>
-                    <div>
-                        <h2><%= posts[i].category %></h2>
+            <div class="news">
+                <a href="view-post?id=<%= posts[i]._id %>">
+                    <div class="subnews-s">
+                        <img src="img/image.jpg" alt="">
+                        <h1><%= posts[i].title %></h1>
+                        <p><%= posts[i].paragraphs[0].slice(0,250) + "..." %></p>
                     </div>
+                </a>  
+                <div>
+                    <h2><%= posts[i].category %></h2>
                 </div>
-            </a>  
+            </div>
         <%
         }
         %>

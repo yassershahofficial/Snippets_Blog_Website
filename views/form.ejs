@@ -2,29 +2,47 @@
 <%- include('include/_header-form')%>
 <!-- /header -->
 
-<form action="" method="post">
+<form action="/api/posts" method="post" id="form">
     <div>
-        <label for="">Title</label>
-        <input type="text">
+        <label for="title">Title</label>
+        <input type="text" name="title">
     </div>
     <div>
-        <label for="">Story</label>
-        <textarea name="" id="" cols="40" rows="1"></textarea>
+        <label for="paragraphs">Story</label>
+        <textarea name="paragraphs" id="" cols="40" rows="40"></textarea>
     </div>
     <div>
         <label for="">Category</label>
         <div class="checkboxes">
-            <button value="Finance">Finance</button>   
-            <button value="Self-Dev">Self-Dev</button>       
-            <button value="Coding">Coding</button>       
-            <button value="Education">Education</button> 
-            <button value="Psychology">Psychology</button>
-            <button value="Creative">Creative</button>
-        </div>
+            <label class="radio-label">
+                <input type="radio" name="category" value="Finance">   
+                Finance
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="category" value="Self-Dev">  
+                Self-Dev
+            </label>   
+            <label class="radio-label">
+                <input type="radio" name="category" value="Coding">    
+                Coding
+            </label> 
+            <label class="radio-label">
+                <input type="radio" name="category" value="Education">
+                Education
+            </label>    
+            <label class="radio-label">     
+                <input type="radio" name="category" value="Psychology">
+                Psychology
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="category" value="Creative">
+                Creative
+            </label>   
+        </div>   
     </div>
     <div class="buttons">
         <button type="submit">Publish</button>
-        <button>Cancel</button>
+        <button type="button" id="cancelForm">Cancel</button>
     </div>
 </form>
 

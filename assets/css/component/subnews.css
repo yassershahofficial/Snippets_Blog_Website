@@ -1,3 +1,14 @@
+.news{
+    display: inline-block;
+    align-items: center;
+    h2{
+        padding: 0.2rem 0.6rem;
+        background-color: var(--orange);
+        border-radius: 1rem;
+        width: 10rem;
+        margin: 1rem auto;
+    }
+}
 .subnews-s, .subnews{
     display: flex;
     flex-direction: column;
@@ -16,11 +27,7 @@
         justify-content: center;
         column-gap: 1rem;
     }
-    h2{
-        padding: 0.2rem 0.6rem;
-        background-color: var(--orange);
-        border-radius: 1rem;
-    }
+
     p{
         font-size: 0.7rem;
         padding:0 8%;
@@ -60,6 +67,6 @@
         grid-template-columns: 20% 20% 20% 20%;
     }
     .subnews-s{
-        height: 28rem;
+        height: 26rem;
     }
 }
