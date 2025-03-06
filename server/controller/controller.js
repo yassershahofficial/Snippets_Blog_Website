@@ -1,11 +1,10 @@
 const postDB = require('../model/model');
 var postsDB = require('../model/model');
 
-exports.create = (req, res) => {
+exports.create = async(req, res) => {
     try{
         if(!req.body){
-            res.status(400).send({message : "Content cannot be empty!" });
-            return;
+            return res.status(400).send({message : "Content cannot be empty!" });
         }
     
         //new post
@@ -17,7 +16,7 @@ exports.create = (req, res) => {
         });
     
         //save the user in the database
-        post
+        await post
             .save(post)
             .then(data =>{
                 // res.send(data)
@@ -25,40 +24,61 @@ exports.create = (req, res) => {
             })
 
     }catch(err){
-        res.status(500).send({message: err.message || "Some error has occured while creating a posts"})
+        return res.status(500).send({message: err.message || "Some error has occured while creating a posts"})
     };
 }
 
-exports.find = (req,res) => {
+exports.find = async(req,res) => {
     try{
+        let filter = {}
         if(req.query.id){
             const id = req.query.id;
-            postsDB.findById(id)
+            await postsDB.findById(id)
                 .then(post => {
                     if(!post){
-                        res.status(404).send({message : "User Not Found with Id : " + id})
+                        return res.status(404).send({message : "User Not Found with Id : " + id})
                     }
                     else{
-                        res.send(post);
+                        return res.send(post);
                     }
                 })
         }
         else{
-            postsDB.find() 
-                .then(posts => {
-                    res.send(posts)
+            //filter by category, if non, by default filter null
+            if(req.query.category){
+                filter.category = req.query.category;
+            }
+            // Filter by date range (startDate & endDate)
+            if (req.query.startDate || req.query.endDate) {
+                filter.createdAt = {}; // Initialize createdAt filter
+
+                if (req.query.startDate) {
+                    filter.createdAt.$gte = new Date(req.query.startDate); // Greater than or equal to startDate
+                }
+                if (req.query.endDate) {
+                    filter.createdAt.$lte = new Date(req.query.endDate); // Less than or equal to endDate
+                }
+            }
+
+            await postDB.find(filter)
+                .then(posts =>{
+                    if(!posts.length){
+                        return res.status(404).send({Message : "No Post Available with the Criteria(s) " + JSON.stringify(filter)})
+                    }
+                    else{
+                        return res.send(posts)
+                    }
                 })
         }
     }catch(err){
-        err.status(500).send({message : err.message || "Error has occured while retrieving posts"});
+        return res.status(500).send({message : err.message || "Error has occured while retrieving posts"});
     }
-    
 }
 
-exports.delete = (req,res) => {
+exports.delete = async(req,res) => {
     try{
         const id = req.params.id;
-        postsDB.findByIdAndDelete(id)
+        await postsDB.findByIdAndDelete(id)
             .then(post => {
                 if(!post){
                     res.status(404).send({message : "id : " + id + " post is not available to delete"})
@@ -68,6 +88,7 @@ exports.delete = (req,res) => {
                 }
             })
     }catch(err){
-        err.status(500).send({message : err.message || "Error has occured while deleting a post"})
+        return res.status(500).send({message : err.message || "Error has occured while deleting a post"})
     }
 }
+

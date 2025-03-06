@@ -14,16 +14,16 @@ exports.viewPostRoutes = (req,res) => {
             res.render('single-view', {post: response.data});
         })
         .catch(err => {
-            err.status(500).send({message : err.message || "request unavailable"})
+            res.status(500).send({message : err.message || "request unavailable"})
         })
 }
 exports.allDirectories = (req,res) => {
-    axios.get('http://localhost:3000/api/posts')
+    axios.get('http://localhost:3000/api/posts', {params : {category : req.query.category || null}})
         .then(function(response){
             res.render('all-directores', {posts: response.data});
         })
         .catch(err => {
-            err.status(500).send({message : err.message || "request unavailable"})
+            res.status(500).send({message : err.message || "request unavailable"})
         })
     
 }

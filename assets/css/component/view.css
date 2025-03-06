@@ -4,15 +4,20 @@
         padding: 0 3rem;
         text-align: center;
     }
-
+    img{
+        display: block;
+        justify-self: center;
+        width: 90%;
+    }
     p{
-        margin: 4rem 0;
+        margin: 4rem 1rem;
         text-align: justify;
         text-indent: 3rem;
         line-height: 1.4rem;
     }
     h3{
         font-size: 3rem;
+        justify-self: center;
     }
     div{
         display: flex;
@@ -24,5 +29,24 @@
         background-color: var(--orange);
         border-radius: 1rem;
     }
+}
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 576px) {
+    .directory-news{
+        grid-template-columns: 40% 40%;
+    }
+    .subnews-s{
+        height: 22rem;
+    }
+}
+
+/* Small Devices (Tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+    
+}
+
+@media (min-width: 1201px) {
+    
 }
 

@@ -29,7 +29,7 @@ route.get('/directories', services.allDirectories)
 //create
 route.post('/api/posts', controller.create);
 
-//find All or by Id
+//Find All or Sort All or by Id
 route.get('/api/posts', controller.find)
 
 //delete by Id
