@@ -18,3 +18,54 @@ header div button{
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
 }
+.screenpop{
+    display: flex;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.532);
+    inset: 0;
+    margin-top: -1rem;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+.screenpop.visible{
+    visibility: visible;
+}
+.popup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    background-color: var(--peach);
+    padding: 2rem;
+    height: 30vh;
+    visibility: hidden;
+    border-radius: 3px;
+    h3{
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+.popup.visible{
+    visibility: visible;
+}
+.popup > div{
+    display: inline-block;
+    justify-content: center;
+    width: 100%;
+    text-align: right;
+}
+.popup > div > div{
+    display: flex;
+    padding: 1rem;
+    column-gap: 2rem;
+    align-items: center;
+    height: 10%;
+}
+.buttons button{
+    padding: 0.6rem 1rem;
+    margin-right: 1rem;
+}
+.buttons :first-child{
+    background-color: var(--orange);
+}

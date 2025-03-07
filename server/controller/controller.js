@@ -20,7 +20,7 @@ exports.create = async(req, res) => {
             .save(post)
             .then(data =>{
                 // res.send(data)
-                res.redirect('/directories')
+                return res.redirect('/directories')
             })
 
     }catch(err){
@@ -39,7 +39,7 @@ exports.find = async(req,res) => {
                         return res.status(404).send({message : "User Not Found with Id : " + id})
                     }
                     else{
-                        return res.send(post);
+                        return res.send(post)
                     }
                 })
         }
@@ -67,6 +67,7 @@ exports.find = async(req,res) => {
                     }
                     else{
                         return res.send(posts)
+                        // return res.redirect('/directories')
                     }
                 })
         }

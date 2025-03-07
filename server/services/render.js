@@ -18,12 +18,17 @@ exports.viewPostRoutes = (req,res) => {
         })
 }
 exports.allDirectories = (req,res) => {
-    axios.get('http://localhost:3000/api/posts', {params : {category : req.query.category || null}})
-        .then(function(response){
-            res.render('all-directores', {posts: response.data});
-        })
-        .catch(err => {
-            res.status(500).send({message : err.message || "request unavailable"})
-        })
+    axios.get('http://localhost:3000/api/posts', 
+        {params : {
+            category : req.query.category || null, 
+            startDate : req.query.startDate || null, 
+            endDate : req.query.endDate || null
+        }})
+            .then(function(response){
+                res.render('all-directores', {posts: response.data});
+            })
+            .catch(err => {
+                res.status(500).send({message : err.message || "request unavailable"})
+            })
     
 }

@@ -15,39 +15,48 @@
 
     <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/piximisa" rel="stylesheet">
-                
+    
+    <!-- Scripting JS -->
+    <script src="/js/index.js" defer></script>      
 </head>
 <body>
     <header>
         <h1>SNIPPETS</h1>
         <div>
-            <button type="button" onclick="window.location.href = '/add-post'">Add New</button>
-            <button>Filter</button>
+            <button type="button" id="redirectToForm">Add New</button>
+            <button type="button" id="filterPopup">Filter</button>
             <button>Sort</button>
-            <div>
-                <div>
+            <div class="screenpop" id="screenpop">
+                <form class="popup" id="fpopup" action="/directories" method="get">
                     <h3>Filter</h3>
                     <div>
                         <div>
-                            <label for="">Category</label>
-                            <select name="" id=""></select>
+                            <label for="category">Category</label>
+                            <select name="category">
+                                <option value="">All</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Self-Dev">Self-Dev</option>
+                                <option value="Education">Education</option>
+                                <option value="Coding">Coding</option>
+                            </select>
+                            
                         </div>
                         <div>
                             <div>
-                                <label for="">Start Date</label>
-                                <input type="date" name="" id="">
+                                <label for="startDate">Start Date</label>
+                                <input type="date" name="startDate">
                             </div>
                             <div>
-                                <label for="">End Date</label>
-                                <input type="date" name="" id="">
+                                <label for="endDate">End Date</label>
+                                <input type="date" name="endDate">
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <button>Apply</button>
+                    <div class="buttons">
+                        <button type="submit">Apply</button>
                         <button>Cancel</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </header>
