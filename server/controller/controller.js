@@ -85,11 +85,11 @@ exports.delete = async(req,res) => {
                     res.status(404).send({message : "id : " + id + " post is not available to delete"})
                 }
                 else{
-                    res.status(200).send({message : "id : " + id + "post deleted successfully"})
+                    res.status(200).send({message : "id : " + id + " post deleted successfully"})
                 }
             })
     }catch(err){
-        return res.status(500).send({message : err.message || "Error has occured while deleting a post"})
+        return res.status(500).send({message : err.message || " Error has occured while deleting a post"})
     }
 }
 
