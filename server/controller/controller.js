@@ -76,6 +76,23 @@ exports.find = async(req,res) => {
     }
 }
 
+exports.update = async(req,res) => {
+    try{
+        const id = req.params.id;
+        await postDB.findByIdAndUpdate(id, req.body)
+            .then(post => {
+                if(!post){
+                    return res.status(400).send({message : "Cannot Update Post Id : " + id + ". Id not Found"})
+                }
+                else{
+                    return res.status(200).send({message : "Post Updated Successfully!"})
+                }
+            })
+    }catch(err){
+        return res.status(500).send({message : err.message || "Error has occured while updating the post"})
+    }
+}
+
 exports.delete = async(req,res) => {
     try{
         const id = req.params.id;
