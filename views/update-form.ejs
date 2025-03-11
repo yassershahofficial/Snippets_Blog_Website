@@ -1,0 +1,51 @@
+<!-- header -->
+<%- include('include/_header-form')%>
+<!-- /header -->
+
+<form action="/api/posts" method="put" id="form">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" value="<%= post.title %>">
+    </div>
+    <div>
+        <label for="paragraphs">Story</label>
+        <textarea name="paragraphs" id="" cols="40" rows="40"><%= post.paragraphs %></textarea>
+    </div>
+    <div>
+        <label for="">Category</label>
+        <div class="checkboxes">
+            <label class="radio-label">
+                <input type="radio" name="category" value="Finance" <%= post.category === "Finance" ? "checked" : "" %> >   
+                Finance
+            </label>
+            <label class="radio-label"> 
+                <input type="radio" name="category" value="Self-Dev" <%= post.category === "Self-Dev" ? "checked" : "" %> >  
+                Self-Dev
+            </label>   
+            <label class="radio-label">
+                <input type="radio" name="category" value="Coding" <%= post.category === "Coding" ? "checked" : "" %> >    
+                Coding
+            </label> 
+            <label class="radio-label">
+                <input type="radio" name="category" value="Education" <%= post.category === "Education" ? "checked" : "" %> >
+                Education
+            </label>    
+            <label class="radio-label">     
+                <input type="radio" name="category" value="Psychology" <%= post.category === "Psychology" ? "checked" : "" %> >
+                Psychology
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="category" value="Creative" <%= post.category === "Creative" ? "checked" : "" %> >
+                Creative
+            </label>   
+        </div>   
+    </div>
+    <div class="buttons">
+        <button type="submit">Update</button>
+        <button type="button" id="cancelForm">Cancel</button>
+    </div>
+</form>
+
+<!-- footer -->
+<%- include('include/_footer')%>
+<!-- /footer -->

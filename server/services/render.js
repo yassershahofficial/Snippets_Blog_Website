@@ -8,6 +8,15 @@ exports.homeRoutes = (req,res) => {
 exports.addPostRoutes = (req,res) => {
     res.render('form');
 }
+exports.updatePostRoutes = (req,res) => {
+    axios.get('http://localhost:3000/api/posts', {params : {id: req.query.id}})
+        .then(function(response){
+            res.render('update-form', {post: response.data})
+        })
+        .catch(err => {
+            res.status(500).send({message : err.message || "request unavailable"})
+        })
+}
 exports.viewPostRoutes = (req,res) => {
     axios.get('http://localhost:3000/api/posts', {params : {id : req.query.id}})
         .then(function(response){

@@ -13,7 +13,11 @@ route.get('/', services.homeRoutes)
  * @method GET /add-post
  */
 route.get('/add-post', services.addPostRoutes)
-
+/** 
+ * @description Update Post Route
+ * @method PUT /update-post
+ */
+route.get('/update-post', services.updatePostRoutes)
 /** 
  * @description View Post Route
  * @method GET /view-post

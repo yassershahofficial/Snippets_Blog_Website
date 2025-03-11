@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     document.body.addEventListener("click", function (event) {
         if (event.target.id === "cancelForm") {
-            window.location.href = "/directories";
+            // window.location.href = "/directories";
+            window.history.go(-1);
         }
         else if(event.target.id === "singleDeletePost"){
             const postId = event.target.getAttribute("data-id");
@@ -33,6 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         alert("Error : " + err.message)
                     })
             }
+        }
+        else if(event.target.id === "singleUpdatePost"){
+            const postId = event.target.getAttribute("data-id");
+            window.location.href = `/update-post?id=${postId}`
         }
     });
     
