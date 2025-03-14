@@ -31,6 +31,8 @@ exports.create = async(req, res) => {
 exports.find = async(req,res) => {
     try{
         let filter = {}
+        let sorter = {}
+
         if(req.query.id){
             const id = req.query.id;
             await postsDB.findById(id)
@@ -60,7 +62,15 @@ exports.find = async(req,res) => {
                 }
             }
 
-            await postDB.find(filter)
+            //sort by any type, if non, sort by latest createdAt
+            if(req.query.sortBy){
+                sorter[req.query.sortBy] = req.query.order === "asc" ? 1 : -1;
+            }
+            else{
+                sorter = {createdAt : -1};
+            }
+
+            await postDB.find(filter).sort(sorter)
                 .then(posts =>{
                     if(!posts.length){
                         return res.status(404).send({Message : "No Post Available with the Criteria(s) " + JSON.stringify(filter)})
