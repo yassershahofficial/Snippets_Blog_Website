@@ -31,13 +31,14 @@ exports.allDirectories = (req,res) => {
         {params : {
             category : req.query.category || null, 
             startDate : req.query.startDate || null, 
-            endDate : req.query.endDate || null
+            endDate : req.query.endDate || null,
+            sortBy : req.query.sortBy || null,
+            order : req.query.order || null
         }})
             .then(function(response){
                 res.render('all-directores', {posts: response.data});
             })
             .catch(err => {
                 res.status(500).send({message : err.message || "request unavailable"})
-            })
-    
+            })   
 }

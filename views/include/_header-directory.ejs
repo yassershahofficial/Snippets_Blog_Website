@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/include/header-directory.css">
     <link rel="stylesheet" href="css/directory-category.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/include/footer.css">
     <!-- CSS Components -->
     <link rel="stylesheet" href="css/component/subnews.css">
 
-    <!-- Fonts -->
+    <!-- Fonts (Preload for Performance) -->
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/piximisa" as="style">
     <link href="https://fonts.cdnfonts.com/css/piximisa" rel="stylesheet">
     
     <!-- Scripting JS -->
@@ -25,7 +26,15 @@
         <div>
             <button type="button" id="redirectToForm">Add New</button>
             <button type="button" id="filterPopup">Filter</button>
-            <button>Sort</button>
+            <button type="submit" id="sorterGet">Sort</button>
+            <select name="sorter" id="sorterOptions">
+                <option value="title Asc">Title (Asc)</option>
+                <option value="title Des">Title (Des)</option>
+                <option value="category Asc">Category (Asc)</option>
+                <option value="category Des">Category (Des)</option>
+                <option value="createdAt Asc">CreatedAt (Oldest)</option>
+                <option value="createdAt Des" selected>CreatedAt (Newest)</option>
+            </select>
             <div class="screenpop" id="screenpop">
                 <form class="popup" id="fpopup" action="/directories" method="get">
                     <h3>Filter</h3>
