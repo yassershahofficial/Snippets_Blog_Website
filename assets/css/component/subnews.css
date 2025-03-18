@@ -1,6 +1,7 @@
 .news{
     display: inline-block;
     align-items: center;
+    padding: 0 1%;
     h2{
         padding: 0.2rem 0.6rem;
         background-color: var(--orange);
@@ -8,6 +9,9 @@
         width: 10rem;
         margin: 1rem auto;
     }
+}
+.news:hover{
+    background-color: var(--grey);
 }
 .subnews-s, .subnews{
     display: flex;
@@ -64,7 +68,7 @@
 
 @media (min-width: 1201px) {
     .directory-news{
-        grid-template-columns: 20% 20% 20% 20%;
+        grid-template-columns: 22% 22% 22% 22%;
     }
     .subnews-s{
         height: 26rem;

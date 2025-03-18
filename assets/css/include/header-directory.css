@@ -9,15 +9,18 @@ header h1{
     text-align: center;
     font-size: 4rem;
     font-family: 'Piximisa', sans-serif;
+    margin-left: 2rem;
 }
 header div{
     text-align: right;
     margin: 0.6rem 0 0 0;
 }
-header div button{
+header div button, header select{
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
+    background-color: var(--grey);
 }
+
 .screenpop{
     display: flex;
     position: fixed;
@@ -68,4 +71,37 @@ header div button{
 }
 .buttons :first-child{
     background-color: var(--orange);
+}
+/* Extra Small Devices (Phones) */
+@media (max-width: 576px) {
+    header{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    header > h1{
+        margin: 0;
+    }
+    header > div{
+        margin: 0;
+    }
+}
+
+/* Small Devices (Tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+    header{
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    header > h1{
+        margin: 0;
+    }
+    header > div{
+        margin: 0;
+    }
+}
+
+@media (min-width: 1201px) {
+    
 }

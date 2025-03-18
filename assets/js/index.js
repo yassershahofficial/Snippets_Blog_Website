@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = `/update-post?id=${postId}`
         }
     });
+
+    document.getElementById("gotoIndex").addEventListener("click", function() {
+        window.location.href = "/";
+    });
     
     document.getElementById("redirectToForm").addEventListener("click", function () {
         window.location.href = "/add-post";

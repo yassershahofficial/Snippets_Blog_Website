@@ -20,7 +20,7 @@ exports.create = async(req, res) => {
             .save(post)
             .then(data =>{
                 // res.send(data)
-                return res.redirect('/directories')
+                return res.status(200).redirect('/directories')
             })
 
     }catch(err){
@@ -76,7 +76,7 @@ exports.find = async(req,res) => {
                         return res.status(404).send({Message : "No Post Available with the Criteria(s) " + JSON.stringify(filter)})
                     }
                     else{
-                        return res.send(posts)
+                        return res.status(200).send(posts)
                         // return res.redirect('/directories')
                     }
                 })
@@ -95,7 +95,8 @@ exports.update = async(req,res) => {
                     return res.status(400).send({message : "Cannot Update Post Id : " + id + ". Id not Found"})
                 }
                 else{
-                    return res.status(200).send({message : "Post Updated Successfully!"})
+                    // res.status(200).send({message : "Post Updated Successfully!"})
+                    return res.status(200).redirect('/directories')
                 }
             })
     }catch(err){
