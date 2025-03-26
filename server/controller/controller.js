@@ -20,7 +20,7 @@ exports.create = async(req, res) => {
             .save(post)
             .then(data =>{
                 // res.send(data)
-                return res.status(200).redirect('/directories')
+                return res.status(200).redirect('/directories').send({message : "Post created successfully!"})
             })
 
     }catch(err){
@@ -96,7 +96,7 @@ exports.update = async(req,res) => {
                 }
                 else{
                     // res.status(200).send({message : "Post Updated Successfully!"})
-                    return res.status(200).redirect('/directories')
+                    return res.status(200).redirect('/directories').send({message : "Post updated successfully!"})
                 }
             })
     }catch(err){

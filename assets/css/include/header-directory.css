@@ -15,7 +15,7 @@ header div{
     text-align: right;
     margin: 0.6rem 0 0 0;
 }
-header div button, header select{
+header div button, header select, header input{
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
     background-color: var(--grey);

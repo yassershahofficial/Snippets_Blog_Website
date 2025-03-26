@@ -1,6 +1,6 @@
 const axios = require('axios');
-const { param } = require('../routes/router');
-const { query } = require('express');
+// const { param } = require('../routes/router');
+// const { query } = require('express');
 
 exports.homeRoutes = (req,res) => {
     res.render('index');
